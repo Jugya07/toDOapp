@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/bea0007250.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <title>To Do List</title>
+</head>
+<body>
+
+  <div class="box box1" id="heading">
+    <h1 class="quote">"Start your DAY with a good PLAN!!"</h1>
+    <h1 class="heading1" data-text="<%=taskTitle%>"><%=taskTitle%></h1>
+  </div>
+
+  <div class="box" id="main">
+
+    <% newTaskItems.forEach(function(item){ %>
+      <form action="/delete" method="post">
+        <div class="item item1">
+          <input type="checkbox" name="checkbox"  id="<%= item._id %>" class="checkbox1" value='<%= item._id %>' onchange="this.form.submit()"><label for="<%= item._id %>"></label>
+            <p><%= item.name %> </p>
+        </div>
+      </form>
+
+    <% }) %>
+
+        <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="Add New Work Here" autocomplete="off">
+        <button type="submit" name="list" value="<%= taskTitle%>"></button>
+      </form>
+</div>
+
+</body>
+
+<footer>
+  <a href="https://www.instagram.com/jugya__kamal07/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.linkedin.com/in/jugya-kamal-gogoi-5ab594229/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+  <a href="https://www.facebook.com/zhang.jike.311/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+</footer>
+</html>
